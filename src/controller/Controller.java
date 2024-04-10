@@ -28,13 +28,13 @@ public class Controller implements Observable<Observer> {
 				this._calculator.add();
 				break;
 			case "-":
-				this._calculator.add();
+				this._calculator.sub();
 				break;
 			case "*":
-				this._calculator.add();
+				this._calculator.mul();
 				break;
 			case "/":
-				this._calculator.add();
+				this._calculator.div();
 				break;
 			default:
 				notify_on_error("Unkown operation");

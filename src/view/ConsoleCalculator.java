@@ -30,14 +30,14 @@ public class ConsoleCalculator implements Observer {
 
 	@Override
 	public void onResult(double result) {
-		System.out.println("Result: " + result);
+		System.out.println("Result: " + result + System.lineSeparator());
+		System.lineSeparator();
 		this.update();
 	}
 
 	@Override
 	public void onError(String message) {
-		System.err.println(message);
-		System.lineSeparator();
+		System.out.println("[ERROR] " + message + System.lineSeparator());
 		this.update();
 	}
 }

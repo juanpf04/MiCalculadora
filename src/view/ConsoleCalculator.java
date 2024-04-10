@@ -37,7 +37,6 @@ public class ConsoleCalculator implements Observer {
 	@Override
 	public void onError(String message) {
 		System.err.println(message);
-		System.err.flush();
 		System.lineSeparator();
 		this.update();
 	}

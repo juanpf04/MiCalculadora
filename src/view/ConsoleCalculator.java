@@ -31,13 +31,12 @@ public class ConsoleCalculator implements Observer {
 	@Override
 	public void onResult(double result) {
 		System.out.println("Result: " + result + System.lineSeparator());
-		System.lineSeparator();
-		this.update();
+//		this.update(); // FIXME si ponemos esto, las vistas no avanzan nunca mas ya que solo ejecuta esto, hilos?
 	}
 
 	@Override
 	public void onError(String message) {
 		System.out.println("[ERROR] " + message + System.lineSeparator());
-		this.update();
+//		this.update();
 	}
 }

@@ -1,11 +1,11 @@
 package view;
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -35,55 +35,59 @@ public class ModernCalculator extends JFrame implements Observer, ActionListener
 	}
 
 	public void initGUI() {
-		JPanel mainPanel = new JPanel(new FlowLayout());
+		JPanel mainPanel = new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 		this.setContentPane(mainPanel);
 
+		JPanel top = new JPanel();
 		this._param1 = new JTextField();
 		Dimension d = this._param1.getPreferredSize();
-//		this._param1.setMinimumSize(new Dimension((d.width - 20) / 2, d.height * 2));
-//		this._param1.setMaximumSize(new Dimension(d.width - 20, d.height * 2));
-//		this._param1.setPreferredSize(new Dimension(d.width - 40, d.height * 2));
+		this._param1.setPreferredSize(new Dimension(70, d.height));
 		this._param1.setToolTipText("First parameter");
-		this.add(this._param1);
+		top.add(this._param1);
 
 		this._param2 = new JTextField();
 		d = this._param2.getPreferredSize();
-//		this._param2.setMinimumSize(new Dimension((d.width - 20) / 2, d.height * 2));
-//		this._param2.setMaximumSize(new Dimension(d.width - 20, d.height * 2));
-//		this._param2.setPreferredSize(new Dimension(d.width - 40, d.height * 2));
+		this._param2.setPreferredSize(new Dimension(70, d.height));
 		this._param2.setToolTipText("Second parameter");
-		this.add(this._param2);
+		top.add(this._param2);
+
+		this.add(top);
+
+		JPanel buttons = new JPanel();
 
 		JButton addButton = new JButton("+");
 		addButton.setToolTipText("Addition");
 		addButton.addActionListener(this);
-		this.add(addButton);
+		buttons.add(addButton);
 
 		JButton subButton = new JButton("-");
 		subButton.setToolTipText("Substraction");
 		subButton.addActionListener(this);
-		this.add(subButton);
+		buttons.add(subButton);
 
 		JButton mulButton = new JButton("*");
 		mulButton.setToolTipText("Multiplication");
 		mulButton.addActionListener(this);
-		this.add(mulButton);
+		buttons.add(mulButton);
 
 		JButton divButton = new JButton("/");
 		divButton.setToolTipText("Division");
 		divButton.addActionListener(this);
-		this.add(divButton);
+		buttons.add(divButton);
+
+		this.add(buttons);
 
 		this._result = new JTextField();
 		d = this._result.getPreferredSize();
-//		this._result.setMinimumSize(new Dimension((d.width - 20) / 2, d.height * 2));
-//		this._result.setMaximumSize(new Dimension(d.width - 20, d.height * 2));
-//		this._result.setPreferredSize(new Dimension(d.width - 40, d.height * 2));
+		this._result.setPreferredSize(new Dimension(120, d.height));
 		this._result.setToolTipText("Operation result");
+
 		this.add(this._result);
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
+
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 		int x = (screenSize.width - getWidth()) / 2;
@@ -100,7 +104,7 @@ public class ModernCalculator extends JFrame implements Observer, ActionListener
 
 	@Override
 	public void onError(String message) {
-		JOptionPane.showMessageDialog(null, message, "ERROR", JOptionPane.ERROR_MESSAGE);
+		//JOptionPane.showMessageDialog(null, message, "ERROR", JOptionPane.ERROR_MESSAGE); // si lo ponemos sale dos veces el mensaje de error
 	}
 
 	@Override

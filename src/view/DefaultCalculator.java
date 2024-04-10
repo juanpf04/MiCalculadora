@@ -66,7 +66,7 @@ public class DefaultCalculator extends JFrame implements Observer {
 				} else {
 					String param2 = _text.getText().split(Pattern.quote(_operation))[1];
 					_ctrl.executeOperacion(_param1, param2, _operation);
-					_operation = e.getActionCommand();
+					_operation = "";
 				}
 			}
 		});

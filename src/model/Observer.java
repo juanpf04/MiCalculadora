@@ -1,5 +1,8 @@
 package model;
 
-public class Observer {
+public interface Observer {
 
+	public void onResult(double result);
+
+	public void onError(String message);
 }

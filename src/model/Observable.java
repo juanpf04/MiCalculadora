@@ -1,5 +1,8 @@
 package model;
 
-public class Observable {
+public interface Observable<T> {
 
+	public void addObserver(T o);
+
+	public void removeObserver(T o);
 }

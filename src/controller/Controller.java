@@ -18,10 +18,10 @@ public class Controller implements Observable<Observer> {
 		this._observers = new LinkedList<Observer>();
 	}
 
-	public void executeOperacion(String num1, String num2, String op) {
+	public void executeOperacion(String param1, String param2, String op) {
 		try {
-			this._calculator.setParam1(Double.parseDouble(num1));
-			this._calculator.setParam2(Double.parseDouble(num2));
+			this._calculator.setParam1(Double.parseDouble(param1));
+			this._calculator.setParam2(Double.parseDouble(param2));
 
 			switch (op) {
 			case "+":
